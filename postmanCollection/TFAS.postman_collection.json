@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "c565b5ff-4b43-4661-9d8c-9a914e43e48f",
+		"name": "TFAS",
+		"description": "This api collection is responsible for File Analysis System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6752452"
+	},
+	"item": [
+		{
+			"name": "uploadFile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/user/Downloads/sample1.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analysisTask",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"analysisOperation\": \"countWords\",\r\n    \"fileId\": \"ddy3\",\r\n    \"kwords\":\"amicitia\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/analysisTask",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"analysisTask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get analysisTask",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/analysisTask/6h0m3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"analysisTask",
+						"6h0m3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
