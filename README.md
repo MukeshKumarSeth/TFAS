@@ -61,6 +61,6 @@ npm start
 
 
 ## Project Structure
-The folder structure of this Projecxt is follows MVC pattern like model,controller,service etc.
+The folder structure of this Project follows MVC pattern like model,controller,service etc.
 
 
