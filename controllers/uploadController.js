@@ -6,12 +6,25 @@
 
 
 // Some needed modules --------- trying removing one
-import { uploadRequestHandler } from '../utils/util.js'
-// Module for fetching horoscope of single user
+import { uploadRequestHandler, analysisTaskRequestHandler } from '../utils/util.js';
+import { fileUpload, getUploadByFileId, getFileAnalysisById } from '../services/uploadService.js';
+
+// Module for Uploading single text file
 export async function uploadFile(req, res) {
     return await uploadRequestHandler(req, res, async () => {
-        console.log(req.body)
-        console.log(req.file)
-        res.send('file uploaded');
+        return await fileUpload(req.file);
     })
+}
+
+// Module for analysis single text file
+export async function analysisTask(req, res) {
+    return await analysisTaskRequestHandler(req, res, async () => {
+        return await getUploadByFileId(req.body);
+    })
+}
+
+// Module for get single analysis
+export async function getAnalysisTask(req, res) {
+    const result = await getFileAnalysisById(req.params);
+    return res.json(result);
 }

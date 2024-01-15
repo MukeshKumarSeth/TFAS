@@ -14,11 +14,12 @@ const storage = multer.diskStorage({
 export const uploadFile = multer({
   storage,
   fileFilter: function (req, file, callback) {
-    var ext = path.extname(file.originalname);
+    const ext = path.extname(file.originalname);
     if (ext !== '.txt') {
-      return callback(new Error('Only Text file is allowed'))
+      callback(null, false);
+      // return callback(new Error('Only Text file is allowed'));
     }
-    callback(null, true)
+    callback(null, true);
   },
 }).single('file');
 
@@ -33,6 +34,6 @@ export const upload = async (req, res, next) => {
     }
 
     // Everything went fine.
-    next()
+    next();
   })
 }
